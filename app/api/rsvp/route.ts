@@ -11,10 +11,11 @@ export async function POST(req: Request) {
     //    If you have 'fullName' set to UNIQUE in your DB, you can also rely on the DB error.
     //    But let's do a quick check in code:
     const { data: existing, error: existingError } = await supabaseServer
-      .from("rsvp")
-      .select("id")
-      .eq("fullName", fullName)
-      .single();
+    .from("rsvp")
+    .select("id")
+    .eq("fullName", fullName)
+    .maybeSingle();
+  
 
     if (existingError) {
       // If there's an error with the check, handle it (e.g., table not found, etc.)
