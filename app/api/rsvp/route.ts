@@ -1,27 +1,25 @@
 // app/api/rsvp/route.ts
 import { NextResponse } from "next/server";
-import db from "../../../lib/db";
+import { supabaseServer } from "@/lib/supabaseServer";
 
 // POST: Create a new RSVP (with duplicate prevention)
 export async function POST(req: Request) {
   try {
     const { fullName, attending, additionalGuestNames } = await req.json();
 
-    // Check if an RSVP already exists for this guest.
-    const existing = await new Promise<{ id: number } | undefined>((resolve, reject) => {
-      db.get(
-        "SELECT id FROM rsvp WHERE fullName = ?",
-        [fullName],
-        (err: Error | null, row: { id: number } | undefined) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(row);
-          }
-        }
-      );
-    });
+    // 1) Check if an RSVP already exists for this guest.
+    //    If you have 'fullName' set to UNIQUE in your DB, you can also rely on the DB error.
+    //    But let's do a quick check in code:
+    const { data: existing, error: existingError } = await supabaseServer
+      .from("rsvp")
+      .select("id")
+      .eq("fullName", fullName)
+      .single();
 
+    if (existingError) {
+      // If there's an error with the check, handle it (e.g., table not found, etc.)
+      throw existingError;
+    }
     if (existing) {
       return NextResponse.json(
         { error: "RSVP already exists for this guest." },
@@ -29,35 +27,27 @@ export async function POST(req: Request) {
       );
     }
 
-    const query =
-      "INSERT INTO rsvp (fullName, attendance, additionalGuests) VALUES (?, ?, ?)";
-    const guestsJSON = JSON.stringify(additionalGuestNames);
-
-    await new Promise<void>((resolve, reject) => {
-      db.run(query, [fullName, attending, guestsJSON], function (err: Error | null) {
-        if (err) {
-          console.error("SQLite Error:", err);
-          reject(err);
-        } else {
-          resolve();
-        }
+    // 2) Insert the new RSVP
+    const { error: insertError } = await supabaseServer
+      .from("rsvp")
+      .insert({
+        fullName,
+        attendance: attending,
+        // For JSONB column, we can pass an array directly. If it's TEXT, do JSON.stringify
+        additionalGuests: additionalGuestNames || [],
       });
-    });
+
+    if (insertError) {
+      throw insertError;
+    }
 
     return NextResponse.json({ message: "RSVP recorded!" }, { status: 201 });
   } catch (error: unknown) {
     console.error("API POST Error: ", error);
-    if (error instanceof Error) {
-      return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
-      );
-    } else {
-      return NextResponse.json(
-        { error: "Internal error" },
-        { status: 500 }
-      );
-    }
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Internal error" },
+      { status: 500 }
+    );
   }
 }
 
@@ -71,29 +61,23 @@ export async function DELETE(req: Request) {
         { status: 400 }
       );
     }
-    await new Promise<void>((resolve, reject) => {
-      db.run("DELETE FROM rsvp WHERE id = ?", [id], function (err: Error | null) {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      });
-    });
+
+    // 3) Delete from Supabase
+    const { error: deleteError } = await supabaseServer
+      .from("rsvp")
+      .delete()
+      .eq("id", id);
+
+    if (deleteError) {
+      throw deleteError;
+    }
+
     return NextResponse.json({ message: "RSVP removed" });
   } catch (error: unknown) {
     console.error("API DELETE Error: ", error);
-    if (error instanceof Error) {
-      return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
-      );
-    } else {
-      return NextResponse.json(
-        { error: "Internal error" },
-        { status: 500 }
-      );
-    }
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Internal error" },
+      { status: 500 }
+    );
   }
 }
-
