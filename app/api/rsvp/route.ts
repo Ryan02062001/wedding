@@ -13,9 +13,8 @@ export async function POST(req: Request) {
     const { data: existing, error: existingError } = await supabaseServer
     .from("rsvp")
     .select("id")
-    .eq("fullName", fullName)
+    .eq("fullname", fullName)  // use "fullname" (all lowercase)
     .maybeSingle();
-  
 
     if (existingError) {
       // If there's an error with the check, handle it (e.g., table not found, etc.)
@@ -30,13 +29,12 @@ export async function POST(req: Request) {
 
     // 2) Insert the new RSVP
     const { error: insertError } = await supabaseServer
-      .from("rsvp")
-      .insert({
-        fullName,
-        attendance: attending,
-        // For JSONB column, we can pass an array directly. If it's TEXT, do JSON.stringify
-        additionalGuests: additionalGuestNames || [],
-      });
+    .from("rsvp")
+    .insert({
+      fullname: fullName,
+      attendance: attending, // assuming your column name is attendance
+      additionalguests: additionalGuestNames || [], // likewise here
+    });
 
     if (insertError) {
       throw insertError;
