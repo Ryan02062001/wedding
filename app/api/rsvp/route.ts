@@ -2,22 +2,18 @@
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabaseServer";
 
-// POST: Create a new RSVP (with duplicate prevention)
 export async function POST(req: Request) {
   try {
     const { fullName, attending, additionalGuestNames } = await req.json();
 
-    // 1) Check if an RSVP already exists for this guest.
-    //    If you have 'fullName' set to UNIQUE in your DB, you can also rely on the DB error.
-    //    But let's do a quick check in code:
+    // 1. Check if an RSVP already exists for this guest.
     const { data: existing, error: existingError } = await supabaseServer
-    .from("rsvp")
-    .select("id")
-    .eq("fullname", fullName)  // use "fullname" (all lowercase)
-    .maybeSingle();
+      .from("rsvp")
+      .select("id")
+      .eq("fullname", fullName) // use lowercase if your table was created unquoted
+      .maybeSingle();
 
     if (existingError) {
-      // If there's an error with the check, handle it (e.g., table not found, etc.)
       throw existingError;
     }
     if (existing) {
@@ -27,17 +23,36 @@ export async function POST(req: Request) {
       );
     }
 
-    // 2) Insert the new RSVP
-    const { error: insertError } = await supabaseServer
-    .from("rsvp")
-    .insert({
-      fullname: fullName,
-      attendance: attending, // assuming your column name is attendance
-      additionalguests: additionalGuestNames || [], // likewise here
-    });
+    // 2. Insert the main RSVP row
+    const { error: mainInsertError } = await supabaseServer
+      .from("rsvp")
+      .insert({
+        fullname: fullName,
+        attendance: attending, // expecting "yes" or "no"
+        additionalguests: additionalGuestNames || [],
+      });
 
-    if (insertError) {
-      throw insertError;
+    if (mainInsertError) {
+      throw mainInsertError;
+    }
+
+    // 3. If additional guests are provided, insert each as its own row
+    if (additionalGuestNames && additionalGuestNames.length > 0) {
+
+      // Option B: Insert all additional guests in one call (more efficient)
+      const additionalRows = additionalGuestNames.map((guestName: string) => ({
+        fullname: guestName,
+        attendance: "yes", // mark as attending
+        additionalguests: [], // leave this empty for additional guest rows
+      }));
+
+      const { error: additionalInsertError } = await supabaseServer
+        .from("rsvp")
+        .insert(additionalRows);
+
+      if (additionalInsertError) {
+        throw additionalInsertError;
+      }
     }
 
     return NextResponse.json({ message: "RSVP recorded!" }, { status: 201 });
@@ -50,7 +65,7 @@ export async function POST(req: Request) {
   }
 }
 
-// DELETE: Remove an RSVP by its id
+// DELETE route remains the same...
 export async function DELETE(req: Request) {
   try {
     const { id } = await req.json();
@@ -61,7 +76,6 @@ export async function DELETE(req: Request) {
       );
     }
 
-    // 3) Delete from Supabase
     const { error: deleteError } = await supabaseServer
       .from("rsvp")
       .delete()
