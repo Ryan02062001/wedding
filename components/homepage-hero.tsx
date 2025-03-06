@@ -32,9 +32,8 @@ const nameVariants = {
 export default function HomepageHero() {
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-4 w-full">
-      {/* Gold Subheading */}
-
-      <p className="text-sm sm:text-3xl tracking-wide font-bold text-[#fefefe]">
+      {/* Updated Subheading with larger mobile text */}
+      <p className="text-xl sm:text-3xl tracking-wide font-bold text-[#fefefe]">
         We&apos;re Getting Married
       </p>
 
@@ -45,29 +44,31 @@ export default function HomepageHero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Each name gets its own motion element */}
+        {/* Each name gets its own motion element with larger mobile sizes */}
         <motion.h1
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
           variants={nameVariants}
         >
           Ryan Cooper
         </motion.h1>
         <motion.h1
-          className="text-7xl md:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
+          className="text-8xl md:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
           variants={nameVariants}
         >
           &amp;
         </motion.h1>
         <motion.h1
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
           variants={nameVariants}
         >
           Nicol Middleton
         </motion.h1>
       </motion.div>
 
-      {/* Gold Date */}
-      <p className="text-xl font-bold sm:text-3xl text-[#fefefe]">06.21.2025</p>
+      {/* Updated Date with slightly larger mobile text */}
+      <p className="text-2xl sm:text-3xl font-bold text-[#fefefe]">
+        06.21.2025
+      </p>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import HomepageHero from "@/components/homepage-hero";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center">
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background image as a full screen, absolutely positioned element */}
       <BackgroundImage />
 

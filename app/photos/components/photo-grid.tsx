@@ -96,24 +96,41 @@ export default function PhotoGrid() {
     "w-full h-full object-cover rounded-md border border-[#BF9D3E]";
 
   return (
-    <div className="w-full p-10 space-y-5">
+    <div className="w-full px-4 sm:px-10 py-6 space-y-5">
       {grids.map((grid, gridIndex) => (
-        <div key={gridIndex} className={grid.gridClass}>
-          {grid.images.map((img, imgIndex) => (
-            <div
-              key={imgIndex}
-              className={`${img.gridClasses} ${commonWrapperClasses}`}
-            >
-              <Image
-                src={img.src}
-                alt="Background Image"
-                width={3840}
-                height={2160}
-                className={commonImageClasses}
-              />
-            </div>
-          ))}
-        </div>
+        <React.Fragment key={gridIndex}>
+          {/* Mobile Version: One column grid */}
+          <div className="grid grid-cols-1 gap-2 md:hidden">
+            {grid.images.map((img, imgIndex) => (
+              <div key={imgIndex} className={commonWrapperClasses}>
+                <Image
+                  src={img.src}
+                  alt="Background Image"
+                  width={3840}
+                  height={2160}
+                  className={commonImageClasses}
+                />
+              </div>
+            ))}
+          </div>
+          {/* Desktop Version: Original complex grid layout */}
+          <div className={`${grid.gridClass} hidden md:grid`}>
+            {grid.images.map((img, imgIndex) => (
+              <div
+                key={imgIndex}
+                className={`${img.gridClasses} ${commonWrapperClasses}`}
+              >
+                <Image
+                  src={img.src}
+                  alt="Background Image"
+                  width={3840}
+                  height={2160}
+                  className={commonImageClasses}
+                />
+              </div>
+            ))}
+          </div>
+        </React.Fragment>
       ))}
     </div>
   );

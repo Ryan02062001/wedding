@@ -125,20 +125,20 @@ export default function Traveling() {
   ];
 
   return (
-    <div className="w-full mx-auto px-16 py-12 space-y-10">
+    <div className="w-full mx-auto px-4 sm:px-8 lg:px-16 py-6 sm:py-12 space-y-10">
       {/* Title */}
-      <h2 className="text-8xl font-bold mb-4 font-brush text-center tracking-wide text-[#BF9D3E]">
+      <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold mb-4 font-brush text-center tracking-wide text-[#fefefe]">
         Traveling Accommodations
       </h2>
       {/* Grid of Hotel Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
         {accommodations.map((hotel, index) => (
           <div
             key={index}
             className="bg-[#667b68] rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 group"
           >
             {/* Image Section */}
-            <div className="relative h-64 overflow-hidden">
+            <div className="relative h-48 sm:h-64 overflow-hidden">
               <Image
                 src={hotel.image}
                 alt={hotel.name}
@@ -149,18 +149,18 @@ export default function Traveling() {
             </div>
 
             {/* Details Section */}
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold text-white mb-4">
+            <div className="p-4 sm:p-6">
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
                 {hotel.name}
               </h3>
-              <div className="space-y-2">
-                <p className="text-sm text-white">
+              <div className="space-y-1">
+                <p className="text-xs sm:text-sm text-white">
                   <span className="font-bold">Cost:</span> {hotel.cost}
                 </p>
-                <div className="text-sm text-white flex items-center gap-2">
+                <div className="text-xs sm:text-sm text-white flex items-center gap-1">
                   <span className="font-bold">Distance:</span> {hotel.distance}
                 </div>
-                <p className="text-sm text-white">
+                <p className="text-xs sm:text-sm text-white">
                   <span className="font-bold">Location:</span> {hotel.location}
                 </p>
               </div>
