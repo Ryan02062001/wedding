@@ -7,7 +7,7 @@ export default function EventHero() {
     <div className="relative w-full h-[20rem] sm:h-[30rem]">
       {/* Background image */}
       <Image
-        src="/eventhero.jpg"
+        src="/event.JPG"
         alt="Event Hero"
         fill
         priority
