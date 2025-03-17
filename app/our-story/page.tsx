@@ -135,7 +135,7 @@ export default function OurStory() {
                   Under a sky full of stars, surrounded by twinkling lights, I
                   got down on one knee and asked the most important question of
                   my life. And they said yes! It was the perfect moment that
-                  we'll cherish forever.
+                  we&apos;ll cherish forever.
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
@@ -157,10 +157,10 @@ export default function OurStory() {
             >
               <div className="space-y-4">
                 <p className="text-gray-700">
-                  Now we're planning the day we'll officially begin our forever.
-                  Every decision, from the flowers to the venue, is a step
-                  closer to the moment we say "I do." We can't wait to celebrate
-                  with all of you!
+                  Now we&apos;re planning the day we&apos;ll officially begin
+                  our forever. Every decision, from the flowers to the venue, is
+                  a step closer to the moment we say &ldquo;I do.&rdquo; We
+                  can&apos;t wait to celebrate with all of you!
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
@@ -178,7 +178,7 @@ export default function OurStory() {
         {/* Quote */}
         <div className="mt-24 rounded-lg bg-rose-50 p-8 text-center shadow-md">
           <blockquote className="font-serif text-xl italic text-gray-700 md:text-2xl">
-            "And suddenly all the love songs were about you."
+            &ldquo;And suddenly all the love songs were about you.&rdquo;
           </blockquote>
         </div>
 
