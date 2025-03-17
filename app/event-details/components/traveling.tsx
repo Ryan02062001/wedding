@@ -32,88 +32,10 @@ export default function Traveling() {
       ),
     },
     {
-      name: "Embassy Suites By Hilton",
-      image: "/embassy.jpg",
-      cost: "$$",
-      location: "1855 Hughes Landing Blvd, The Woodlands, TX 77380",
-      distance: (
-        <div className="flex gap-1">
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-        </div>
-      ),
-    },
-    {
       name: "Hyatt House The Woodlands / Shenandoah",
       image: "/hyatt-house.jpg",
       cost: "$$",
       location: "18645 Residence Dr, Shenandoah, TX 77385",
-      distance: (
-        <div className="flex gap-1">
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-        </div>
-      ),
-    },
-    {
-      name: "Homewood Suites by Hilton Houston-Woodlands",
-      image: "/homewood.jpg",
-      cost: "$$",
-      location: "29813 Interstate 45 N, The Woodlands, TX 77381",
-      distance: (
-        <div className="flex gap-1">
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-        </div>
-      ),
-    },
-    {
-      name: "Hilton Garden Inn Houston/The Woodlands",
-      image: "/hilton-garden.jpg",
-      cost: "$$",
-      location: "9301 Six Pines Dr, The Woodlands, TX 77380",
-      distance: (
-        <div className="flex gap-1">
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-        </div>
-      ),
-    },
-    {
-      name: "Candlewood Suites Houston (The Woodlands)",
-      image: "/candlewood.jpg",
-      cost: "$",
-      location: "17525 St Lukes Way, The Woodlands, TX 77384",
-      distance: (
-        <div className="flex gap-1">
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-        </div>
-      ),
-    },
-    {
-      name: "SpringHill Suites Houston The Woodlands",
-      image: "/springhill.jpg",
-      cost: "$",
-      location: "16520 I-45, The Woodlands, TX 77384",
-      distance: (
-        <div className="flex gap-1">
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-        </div>
-      ),
-    },
-    {
-      name: "Hyatt Centric The Woodlands",
-      image: "/centric.jpg",
-      cost: "$$$",
-      location: "9595 Six Pines Dr #1100, The Woodlands, TX 77380",
       distance: (
         <div className="flex gap-1">
           <ClockIcon size={16} />
