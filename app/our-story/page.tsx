@@ -66,7 +66,7 @@ export default function OurStory() {
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/firstdate.jpg"
                     alt="Our first date"
                     fill
                     className="object-cover"
