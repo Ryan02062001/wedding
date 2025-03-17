@@ -198,10 +198,10 @@ export default function OurStory() {
 
           <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { src: "/coffee.jpg", alt: "Coffee" },
-              { src: "/proposal.jpg", alt: "Proposal" },
-              { src: "/firstdate.jpg", alt: "First Date" },
-              { src: "/firsttrip.jpg", alt: "First Trip" },
+              { src: "/favorite.jpg", alt: "Coffee" },
+              { src: "/favorite2.jpg", alt: "Proposal" },
+              { src: "/favorite3.jpg", alt: "First Date" },
+              { src: "/favorite4.jpg", alt: "First Trip" },
             ].map((image, i) => (
               <div
                 key={i}
