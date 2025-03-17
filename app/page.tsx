@@ -8,7 +8,7 @@ export default function Home() {
       <BackgroundImage />
 
       {/* Content placed above the background */}
-      <div className="relative z-10 p-4 text-center">
+      <div className="relative z-10 p-2 text-center">
         <HomepageHero />
       </div>
     </div>
