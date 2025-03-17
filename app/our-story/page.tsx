@@ -78,8 +78,8 @@ export default function OurStory() {
               icon={<Heart className="h-6 w-6 text-[#d52929]" />}
               collageImages={[
                 { src: "/firstmet.JPG", alt: "Our first meeting" },
-                { src: "/firstmet2.jpg", alt: "Tennis courts" },
-                { src: "/firstmet3.jpg", alt: "Early days" },
+                { src: "/firstmet2.JPG", alt: "Tennis courts" },
+                { src: "/firstmet3.JPG", alt: "Early days" },
               ]}
             >
               <div className="space-y-4">
@@ -108,8 +108,8 @@ export default function OurStory() {
               align="left"
               icon={<Calendar className="h-6 w-6 text-[#4f4c42]" />}
               collageImages={[
-                { src: "/date.jpg", alt: "Half marathon" },
-                { src: "/date2.jpg", alt: "After the run" },
+                { src: "/date.JPG", alt: "Half marathon" },
+                { src: "/date2.JPG", alt: "After the run" },
                 { src: "/date3.jpg", alt: "First date memories" },
               ]}
             >
@@ -200,8 +200,8 @@ export default function OurStory() {
               icon={<Sparkles className="h-6 w-6 text-[#BF9D3E]" />}
               collageImages={[
                 { src: "/proposing.jpg", alt: "The moment" },
-                { src: "/proposing2.jpg", alt: "Celebration" },
-                { src: "/proposing3.jpg", alt: "After she said yes" },
+                { src: "/proposing2.JPG", alt: "Celebration" },
+                { src: "/proposing3.JPG", alt: "After she said yes" },
               ]}
             >
               <div className="space-y-4">
@@ -213,7 +213,7 @@ export default function OurStory() {
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
-                    src="/proposal.jpg"
+                    src="/proposal.JPG"
                     alt="The proposal"
                     fill
                     className="object-cover"
@@ -230,8 +230,8 @@ export default function OurStory() {
               icon={<Music className="h-6 w-6 text-[#4f4c42]" />}
               collageImages={[
                 { src: "/planning1.jpg", alt: "Wedding planning" },
-                { src: "/planning2.jpg", alt: "Venue visits" },
-                { src: "/planning3.jpg", alt: "Future dreams" },
+                { src: "/planning2.JPG", alt: "Venue visits" },
+                { src: "/planning3.JPG", alt: "Future dreams" },
               ]}
             >
               <div className="space-y-4">
@@ -243,7 +243,7 @@ export default function OurStory() {
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
-                    src="/planning.jpg"
+                    src="/planning.JPG"
                     alt="Wedding planning"
                     fill
                     className="object-cover"
@@ -273,8 +273,8 @@ export default function OurStory() {
           <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
               { src: "/coffee.jpg", alt: "Coffee" },
-              { src: "/proposal.jpg", alt: "Proposal" },
-              { src: "/firstdate.jpg", alt: "First Date" },
+              { src: "/proposal.JPG", alt: "Proposal" },
+              { src: "/firstdate.JPG", alt: "First Date" },
               { src: "/firsttrip.jpg", alt: "First Trip" },
             ].map((image, i) => (
               <div
