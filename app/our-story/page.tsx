@@ -77,7 +77,7 @@ export default function OurStory() {
               align="right"
               icon={<Heart className="h-6 w-6 text-[#d52929]" />}
               collageImages={[
-                { src: "/firstmet.jpg", alt: "Our first meeting" },
+                { src: "/firstmet.JPG", alt: "Our first meeting" },
                 { src: "/firstmet2.jpg", alt: "Tennis courts" },
                 { src: "/firstmet3.jpg", alt: "Early days" },
               ]}
