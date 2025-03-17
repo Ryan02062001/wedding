@@ -33,7 +33,7 @@ export default function HomepageHero() {
   return (
     <div className="flex flex-col items-center justify-center text-center space-y-4 w-full">
       {/* Updated Subheading with larger mobile text */}
-      <p className="text-xl sm:text-3xl tracking-wide font-bold text-[#fefefe]">
+      <p className="text-2xl sm:text-3xl tracking-wide font-bold text-[#fefefe]">
         We&apos;re Getting Married
       </p>
 
@@ -46,7 +46,7 @@ export default function HomepageHero() {
       >
         {/* Each name gets its own motion element with larger mobile sizes */}
         <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
+          className="text-6xl md:text-7xl lg:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
           variants={nameVariants}
         >
           Ryan Cooper
@@ -58,7 +58,7 @@ export default function HomepageHero() {
           &amp;
         </motion.h1>
         <motion.h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
+          className="text-6xl md:text-7xl lg:text-9xl font-extrabold font-brush tracking-wide text-[#fefefe]"
           variants={nameVariants}
         >
           Nicol Middleton
