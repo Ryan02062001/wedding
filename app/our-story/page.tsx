@@ -28,21 +28,22 @@ export default function OurStory() {
           <div className="space-y-24">
             {/* First meeting */}
             <TimelineItem
-              date="January 15, 2019"
+              date="Not Exactly Sure"
               title="When We First Met"
               align="right"
               icon={<Heart className="h-6 w-6 text-[#BF9D3E]" />}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
-                  We met at a coffee shop downtown. I was reading my favorite
-                  book when they asked if they could share my table. Little did
-                  I know that this chance encounter would change my life
-                  forever.
+                  We first met playing tennis. Long story short, I was actually
+                  one of her coaches and she was a student. The
+                  earliest/clearest memory I have is her hitting me in the face
+                  with a tennis ball. (I don&apos;t have any images of us on the
+                  courts so enjoy a cool picture of us kissing.)
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/kissing.jpg"
                     alt="Our first meeting"
                     fill
                     className="object-cover"
@@ -53,23 +54,26 @@ export default function OurStory() {
 
             {/* First date */}
             <TimelineItem
-              date="February 14, 2019"
+              date="March 5, 2022"
               title="Our First Date"
               align="left"
               icon={<Calendar className="h-6 w-6 text-[#BF9D3E]" />}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
-                  Our first date was at the botanical gardens. We spent hours
-                  walking through the exhibits, talking about everything and
-                  nothing. It was the first time I felt that special connection.
+                  Our first date was actually a half marathon. One day on the
+                  courts I had randomly mentioned that I was going to run a half
+                  and half jokingly said she should join. Without thinking twice
+                  she said yes and ran it with me that weekend. Well she
+                  hadn&apos;t trained for it so we more or so walked 8 of the 13
+                  miles and just talked for hours on end.
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
                     src="/firstdate.jpg"
                     alt="Our first date"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
               </div>
@@ -77,16 +81,16 @@ export default function OurStory() {
 
             {/* First trip */}
             <TimelineItem
-              date="July 10, 2019"
+              date="January 10, 2024"
               title="Our First Trip Together"
               align="right"
               icon={<MapPin className="h-6 w-6 text-[#BF9D3E]" />}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
-                  We took our first trip to the coast. We spent days exploring
-                  beaches, trying local foods, and watching sunsets. It was
-                  during this trip that we realized we never wanted to be apart.
+                  We took a few small trips to Arkansas and Cancun but the trip
+                  that we would genuinely consider our first together would be
+                  the Hawaii trip we took with my family.
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
@@ -99,23 +103,24 @@ export default function OurStory() {
               </div>
             </TimelineItem>
 
-            {/* Moving in */}
+            {/* Dates */}
             <TimelineItem
-              date="March 5, 2020"
-              title="Moving In Together"
+              date="All The Time"
+              title="Trying New Foods/Coffee"
               align="left"
               icon={<Camera className="h-6 w-6 text-[#BF9D3E]" />}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
-                  Taking the next step in our relationship, we decided to move
-                  in together. Combining our lives under one roof brought us
-                  even closer, as we created our first home together.
+                  One of our favorite things to do is try new places to eat or
+                  drink coffee. We love finding little bakeries with increible
+                  coffees and treats and have shared many incredible moments
+                  during these dates.
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
-                    alt="Moving in together"
+                    src="/coffee.jpg"
+                    alt="CoffeeDates"
                     fill
                     className="object-cover"
                   />
@@ -125,21 +130,21 @@ export default function OurStory() {
 
             {/* The proposal */}
             <TimelineItem
-              date="December 24, 2022"
+              date="May 22, 2024"
               title="The Proposal"
               align="right"
               icon={<Sparkles className="h-6 w-6 text-[#BF9D3E]" />}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
-                  Under a sky full of stars, surrounded by twinkling lights, I
-                  got down on one knee and asked the most important question of
-                  my life. And they said yes! It was the perfect moment that
-                  we&apos;ll cherish forever.
+                  The proposal was planned to perfection. It was disguised as a
+                  family photo shoot that she had no idea would turn into a
+                  proposal. Fun fact, she had cried to me the night before about
+                  me not proposing yet!
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/proposal.jpg"
                     alt="The proposal"
                     fill
                     className="object-cover"
@@ -164,7 +169,7 @@ export default function OurStory() {
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="/planning.jpg"
                     alt="Wedding planning"
                     fill
                     className="object-cover"
@@ -192,14 +197,19 @@ export default function OurStory() {
           </div>
 
           <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-            {[1, 2, 3, 4].map((i) => (
+            {[
+              { src: "/coffee.jpg", alt: "Coffee" },
+              { src: "/proposal.jpg", alt: "Proposal" },
+              { src: "/firstdate.jpg", alt: "First Date" },
+              { src: "/firsttrip.jpg", alt: "First Trip" },
+            ].map((image, i) => (
               <div
                 key={i}
                 className="group relative h-40 overflow-hidden rounded-lg md:h-52"
               >
                 <Image
-                  src={`/placeholder.svg?height=300&width=300`}
-                  alt={`Memory ${i}`}
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
