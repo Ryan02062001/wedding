@@ -8,6 +8,8 @@ export const rsvpSchema = z.object({
   additionalGuestNames: z
     .array(z.string().min(1, { message: "Guest name is required." }))
     .optional(),
+  // NEW FIELD
+  songRequest: z.string().optional(), // Make it required if you want
 });
 
 export type RSVPFormValues = z.infer<typeof rsvpSchema>;

@@ -160,6 +160,23 @@ const RSVPForm: React.FC = () => {
             )}
           />
         )}
+        <FormField
+          control={form.control}
+          name="songRequest"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-[#BF9D3E]">Song Request</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter a song you'd like to hear"
+                  {...field}
+                  className="border border-[#BF9D3E] focus:ring-2 focus:ring-[#A3B899]"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <Button
           type="submit"
