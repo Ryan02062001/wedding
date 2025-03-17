@@ -124,7 +124,7 @@ export default function OurStory() {
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
-                    src="/firstdate.jpg"
+                    src="/firstdate.JPG"
                     alt="Our first date"
                     fill
                     className="object-cover object-top"
