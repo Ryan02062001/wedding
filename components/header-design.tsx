@@ -49,7 +49,7 @@ export default function HeaderDesign() {
         <nav className="container mx-auto flex items-center justify-center relative px-4">
           {/* Desktop Navigation */}
           <div className="hidden md:flex">
-            <ul className="flex gap-8 text-md font-bold text-[#1a1a1a]">
+            <ul className="flex gap-8 text-md font-bold text-[#2d2d2d]">
               {links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.title}</Link>
@@ -61,7 +61,7 @@ export default function HeaderDesign() {
           <div className="md:hidden absolute right-4">
             <button
               onClick={toggleMenu}
-              className="rounded-md p-2 hover:bg-muted text-[#1a1a1a]"
+              className="rounded-md p-2 hover:bg-muted text-[#fefefe]"
               aria-expanded={isOpen}
               aria-label="Toggle menu"
             >
@@ -86,7 +86,7 @@ export default function HeaderDesign() {
               isOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
-            <div className="flex items-center justify-between text-[#1a1a1a]">
+            <div className="flex items-center justify-between text-[#fefefe]">
               <h2 className="text-xl font-bold">Menu</h2>
               <button
                 onClick={toggleMenu}
@@ -102,7 +102,7 @@ export default function HeaderDesign() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="block rounded-md text-[#1a1a1a] px-4 py-2 text-lg hover:bg-[#62715b]"
+                      className="block rounded-md text-[#fefefe] px-4 py-2 text-lg hover:bg-[#62715b]"
                       onClick={toggleMenu}
                     >
                       {link.title}

@@ -5,14 +5,14 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <div className="w-full overflow-auto flex flex-col items-center justify-center text-center p-4 pt-32 space-y-8">
+    <div className="w-full overflow-auto flex flex-col items-center justify-center text-center p-4 pt-32 space-y-8 bg-[#fefefe]">
       {/* Title */}
       <h1 className="font-brush text-5xl sm:text-7xl md:text-9xl font-bold text-[#BF9D3E] tracking-wide">
         The Registry
       </h1>
 
       {/* Description */}
-      <p className="w-full sm:w-10/12 md:w-7/12 text-base sm:text-lg text-[#fefefe]">
+      <p className="w-full sm:w-10/12 md:w-7/12 text-base sm:text-lg text-[#1a1a1a]">
         We sincerely appreciate your presence on our special day, which is truly
         the greatest gift. However, if you’d like to help us begin this next
         chapter, we’ve put together a few registry options below. Whether you

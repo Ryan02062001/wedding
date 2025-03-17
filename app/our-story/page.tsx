@@ -1,14 +1,47 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import type React from "react";
 import Image from "next/image";
 import { Heart, Calendar, MapPin, Camera, Music, Sparkles } from "lucide-react";
 
 export default function OurStory() {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!timelineRef.current) return;
+
+      const timelineElement = timelineRef.current;
+      const timelineTop = timelineElement.getBoundingClientRect().top;
+      const timelineHeight = timelineElement.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      let progress = 0;
+
+      if (timelineTop <= windowHeight * 0.8) {
+        const scrolledDistance = windowHeight * 0.8 - timelineTop;
+        const totalScrollDistance = timelineHeight + windowHeight * 0.8;
+        progress = Math.min(scrolledDistance / totalScrollDistance, 1);
+        progress = Math.max(progress, 0);
+      }
+
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#FEFEFE]">
-      <div className="container mx-auto px-4 py-16 md:py-24">
+      <div className="container mx-auto px-4 py-16 md:py-32">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h1 className="font-serif text-4xl font-bold text-[#BF9D3E] md:text-5xl lg:text-6xl">
+          <h1 className="font-serif text-5xl font-bold text-[#BF9D3E] md:text-5xl lg:text-6xl">
             Our Story
           </h1>
           <div className="mt-4 flex justify-center">
@@ -20,9 +53,20 @@ export default function OurStory() {
         </div>
 
         {/* Timeline */}
-        <div className="relative mx-auto max-w-5xl">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 transform bg-[#BF9D3E] opacity-30"></div>
+        <div ref={timelineRef} className="relative mx-auto max-w-5xl">
+          {/* Static timeline line (background) */}
+          <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 transform bg-[#BF9D3E] opacity-10"></div>
+
+          {/* Solid gold timeline progress bar */}
+          <div
+            className="absolute left-1/2 top-0 w-0.5 -translate-x-1/2 transform overflow-hidden"
+            style={{
+              height: `${scrollProgress * 100}%`,
+              backgroundColor: "#BF9D3E",
+              transition: "height 0.1s ease-out",
+              opacity: 0.9,
+            }}
+          ></div>
 
           {/* Timeline items */}
           <div className="space-y-24">
@@ -31,7 +75,12 @@ export default function OurStory() {
               date="Not Exactly Sure"
               title="When We First Met"
               align="right"
-              icon={<Heart className="h-6 w-6 text-[#BF9D3E]" />}
+              icon={<Heart className="h-6 w-6 text-[#d52929]" />}
+              collageImages={[
+                { src: "/firstmet.jpg", alt: "Our first meeting" },
+                { src: "/firstmet2.jpg", alt: "Tennis courts" },
+                { src: "/firstmet3.jpg", alt: "Early days" },
+              ]}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
@@ -57,7 +106,12 @@ export default function OurStory() {
               date="March 5, 2022"
               title="Our First Date"
               align="left"
-              icon={<Calendar className="h-6 w-6 text-[#BF9D3E]" />}
+              icon={<Calendar className="h-6 w-6 text-[#4f4c42]" />}
+              collageImages={[
+                { src: "/date.jpg", alt: "Half marathon" },
+                { src: "/date2.jpg", alt: "After the run" },
+                { src: "/date3.jpg", alt: "First date memories" },
+              ]}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
@@ -84,7 +138,12 @@ export default function OurStory() {
               date="January 10, 2024"
               title="Our First Trip Together"
               align="right"
-              icon={<MapPin className="h-6 w-6 text-[#BF9D3E]" />}
+              icon={<MapPin className="h-6 w-6 text-[#33aaef]" />}
+              collageImages={[
+                { src: "/trip.jpg", alt: "Hawaii views" },
+                { src: "/trip2.jpg", alt: "Beach moments" },
+                { src: "/trip3.jpg", alt: "Trip memories" },
+              ]}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
@@ -108,7 +167,12 @@ export default function OurStory() {
               date="All The Time"
               title="Trying New Foods/Coffee"
               align="left"
-              icon={<Camera className="h-6 w-6 text-[#BF9D3E]" />}
+              icon={<Camera className="h-6 w-6 text-[#4f4c42]" />}
+              collageImages={[
+                { src: "/food.jpg", alt: "Coffee shop visits" },
+                { src: "/food2.jpg", alt: "Bakery moments" },
+                { src: "/food3.jpg", alt: "Food adventures" },
+              ]}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
@@ -134,6 +198,11 @@ export default function OurStory() {
               title="The Proposal"
               align="right"
               icon={<Sparkles className="h-6 w-6 text-[#BF9D3E]" />}
+              collageImages={[
+                { src: "/proposing.jpg", alt: "The moment" },
+                { src: "/proposing2.jpg", alt: "Celebration" },
+                { src: "/proposing3.jpg", alt: "After she said yes" },
+              ]}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
@@ -158,7 +227,12 @@ export default function OurStory() {
               date="Present Day"
               title="Planning Our Forever"
               align="left"
-              icon={<Music className="h-6 w-6 text-[#BF9D3E]" />}
+              icon={<Music className="h-6 w-6 text-[#4f4c42]" />}
+              collageImages={[
+                { src: "/planning1.jpg", alt: "Wedding planning" },
+                { src: "/planning2.jpg", alt: "Venue visits" },
+                { src: "/planning3.jpg", alt: "Future dreams" },
+              ]}
             >
               <div className="space-y-4">
                 <p className="text-[#A3B899]">
@@ -183,7 +257,7 @@ export default function OurStory() {
         {/* Quote */}
         <div className="mt-24 rounded-lg bg-[#FEFEFE] p-8 text-center shadow-md border border-[#A3B899]">
           <blockquote className="font-serif text-xl italic text-[#A3B899] md:text-2xl">
-            &ldquo;And suddenly all the love songs were about you.&rdquo;
+            &ldquo;Everything happens for a reason.&rdquo;
           </blockquote>
         </div>
 
@@ -198,10 +272,10 @@ export default function OurStory() {
 
           <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { src: "/favorite.jpg", alt: "Coffee" },
-              { src: "/favorite2.jpg", alt: "Proposal" },
-              { src: "/favorite3.jpg", alt: "First Date" },
-              { src: "/favorite4.jpg", alt: "First Trip" },
+              { src: "/coffee.jpg", alt: "Coffee" },
+              { src: "/proposal.jpg", alt: "Proposal" },
+              { src: "/firstdate.jpg", alt: "First Date" },
+              { src: "/firsttrip.jpg", alt: "First Trip" },
             ].map((image, i) => (
               <div
                 key={i}
@@ -234,6 +308,45 @@ interface TimelineItemProps {
   align: "left" | "right";
   icon: React.ReactNode;
   children: React.ReactNode;
+  collageImages?: { src: string; alt: string }[];
+}
+
+function CollageImage({
+  image,
+  position,
+  rotation,
+  zIndex,
+}: {
+  image: { src: string; alt: string };
+  position: { top: string; left: string };
+  rotation: number;
+  zIndex: number;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="absolute shadow-lg rounded-lg overflow-hidden border-2 border-white cursor-pointer"
+      style={{
+        width: isHovered ? "65%" : "55%",
+        height: isHovered ? "65%" : "55%",
+        top: position.top,
+        left: position.left,
+        zIndex: isHovered ? 100 : zIndex,
+        transform: isHovered ? "rotate(0deg)" : `rotate(${rotation}deg)`,
+        transition: "all 0.4s ease-in-out",
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Image
+        src={image.src || "/placeholder.svg"}
+        alt={image.alt}
+        fill
+        className="object-cover"
+      />
+    </div>
+  );
 }
 
 function TimelineItem({
@@ -242,16 +355,17 @@ function TimelineItem({
   align,
   icon,
   children,
+  collageImages = [],
 }: TimelineItemProps) {
   return (
     <div className="relative flex items-center justify-center">
       {/* Content */}
       <div
-        className={`w-full md:w-5/12 ${
+        className={`w-full md:w-5/12  ${
           align === "left" ? "md:mr-auto md:text-right" : "md:ml-auto"
         }`}
       >
-        <div className="rounded-lg bg-white p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+        <div className="rounded-lg bg-[#fefefe] border-[#BF9D3E] border-[.5px] p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
           <span className="inline-block rounded bg-[#A3B899] bg-opacity-10 px-3 py-1 text-sm font-medium text-[#BF9D3E]">
             {date}
           </span>
@@ -261,6 +375,38 @@ function TimelineItem({
           <div className="mt-4">{children}</div>
         </div>
       </div>
+
+      {/* Photo Collage - only show if there are images */}
+      {collageImages.length > 0 && (
+        <div
+          className={`hidden md:block absolute w-5/12 h-80 ${
+            align === "left" ? "right-0" : "left-0"
+          }`}
+        >
+          <div className="relative w-full h-full">
+            {collageImages.map((image, index) => {
+              const positions = [
+                { top: "0%", left: align === "left" ? "20%" : "10%" },
+                { top: "35%", left: align === "left" ? "5%" : "40%" },
+                { top: "15%", left: align === "left" ? "50%" : "0%" },
+                { top: "55%", left: align === "left" ? "35%" : "25%" },
+              ];
+              const pos = positions[index % positions.length];
+              const rotation = index % 2 === 0 ? -4 + index * 2 : 4 - index * 2;
+
+              return (
+                <CollageImage
+                  key={index}
+                  image={image}
+                  position={pos}
+                  rotation={rotation}
+                  zIndex={index + 1}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Icon */}
       <div className="absolute left-1/2 z-10 flex h-12 w-12 -translate-x-1/2 transform items-center justify-center rounded-full bg-white shadow-md">
