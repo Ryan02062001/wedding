@@ -26,6 +26,7 @@ const RSVPForm: React.FC = () => {
       fullName: "",
       attending: "yes",
       additionalGuestNames: [],
+      songRequest: "",
     },
   });
 
