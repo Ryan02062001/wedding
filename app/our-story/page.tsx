@@ -120,8 +120,8 @@ export default function OurStory() {
                   courts I had randomly mentioned that I was going to run a half
                   and half jokingly said she should join. Without thinking twice
                   she said yes and ran it with me that weekend. Well she
-                  hadn&apos;t trained for it so we more or so walked 8 of the 13
-                  miles and just talked for hours on end.
+                  hadn&apos;t trained for it so we more or less walked 8 of the
+                  13 miles and just talked for hours on end.
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
                   <Image
@@ -178,8 +178,8 @@ export default function OurStory() {
               <div className="space-y-4">
                 <p className="text-[#4f4c42]">
                   One of our favorite things to do is try new places to eat or
-                  drink coffee. We love finding little bakeries with increible
-                  coffees and treats and have shared many incredible moments
+                  drink coffee. We love finding little bakeries with incredible
+                  coffees and treats and have shared many memorable moments
                   during these dates.
                 </p>
                 <div className="relative h-64 w-full overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:scale-[1.02]">
