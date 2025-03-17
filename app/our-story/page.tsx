@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import type React from "react";
 import Image from "next/image";
 import { Heart, Calendar, MapPin, Camera, Music, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export default function OurStory() {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -83,7 +84,7 @@ export default function OurStory() {
               ]}
             >
               <div className="space-y-4">
-                <p className="text-[#A3B899]">
+                <p className="text-[#4f4c42]">
                   We first met playing tennis. Long story short, I was actually
                   one of her coaches and she was a student. The
                   earliest/clearest memory I have is her hitting me in the face
@@ -114,7 +115,7 @@ export default function OurStory() {
               ]}
             >
               <div className="space-y-4">
-                <p className="text-[#A3B899]">
+                <p className="text-[#4f4c42] font-extralight">
                   Our first date was actually a half marathon. One day on the
                   courts I had randomly mentioned that I was going to run a half
                   and half jokingly said she should join. Without thinking twice
@@ -146,7 +147,7 @@ export default function OurStory() {
               ]}
             >
               <div className="space-y-4">
-                <p className="text-[#A3B899]">
+                <p className="text-[#4f4c42]">
                   We took a few small trips to Arkansas and Cancun but the trip
                   that we would genuinely consider our first together would be
                   the Hawaii trip we took with my family.
@@ -175,7 +176,7 @@ export default function OurStory() {
               ]}
             >
               <div className="space-y-4">
-                <p className="text-[#A3B899]">
+                <p className="text-[#4f4c42]">
                   One of our favorite things to do is try new places to eat or
                   drink coffee. We love finding little bakeries with increible
                   coffees and treats and have shared many incredible moments
@@ -205,7 +206,7 @@ export default function OurStory() {
               ]}
             >
               <div className="space-y-4">
-                <p className="text-[#A3B899]">
+                <p className="text-[#4f4c42]">
                   The proposal was planned to perfection. It was disguised as a
                   family photo shoot that she had no idea would turn into a
                   proposal. Fun fact, she had cried to me the night before about
@@ -235,7 +236,7 @@ export default function OurStory() {
               ]}
             >
               <div className="space-y-4">
-                <p className="text-[#A3B899]">
+                <p className="text-[#4f4c42]">
                   Now we&apos;re planning the day we&apos;ll officially begin
                   our forever. Every decision, from the flowers to the venue, is
                   a step closer to the moment we say &ldquo;I do.&rdquo; We
@@ -272,10 +273,10 @@ export default function OurStory() {
 
           <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { src: "/coffee.jpg", alt: "Coffee" },
-              { src: "/proposal.JPG", alt: "Proposal" },
-              { src: "/firstdate.JPG", alt: "First Date" },
-              { src: "/firsttrip.jpg", alt: "First Trip" },
+              { src: "/favorite.JPEG", alt: "favorite" },
+              { src: "/favorite2.jpg", alt: "favorite" },
+              { src: "/favorite3.jpg", alt: "favorite" },
+              { src: "/favorite4.JPG", alt: "favorite" },
             ].map((image, i) => (
               <div
                 key={i}
@@ -292,9 +293,11 @@ export default function OurStory() {
             ))}
           </div>
 
-          <button className="mt-8 rounded-full bg-[#A3B899] px-6 py-3 text-white shadow-md transition-colors hover:bg-[#8fa67d]">
-            View All Photos
-          </button>
+          <Link href="/photos">
+            <button className="mt-8 rounded-full bg-[#A3B899] px-6 py-3 text-white shadow-md transition-colors hover:bg-[#8fa67d]">
+              View All Photos
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import { Toaster } from "@/components/ui/toaster";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: "100",
 });
 
 // 2) Instantiate the cursive font:

@@ -3,11 +3,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function HeaderDesign() {
   const [isHidden, setIsHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
+
+  // If the current page is /our-story or /registry, use dark text.
+  const navTextColor =
+    pathname === "/our-story" || pathname === "/registry"
+      ? "text-[#2d2d2d]"
+      : "text-[#fefefe]";
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -49,7 +57,7 @@ export default function HeaderDesign() {
         <nav className="container mx-auto flex items-center justify-center relative px-4">
           {/* Desktop Navigation */}
           <div className="hidden md:flex">
-            <ul className="flex gap-8 text-md font-bold text-[#2d2d2d]">
+            <ul className={`flex gap-8 text-md font-bold ${navTextColor}`}>
               {links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.title}</Link>
@@ -61,7 +69,7 @@ export default function HeaderDesign() {
           <div className="md:hidden absolute right-4">
             <button
               onClick={toggleMenu}
-              className="rounded-md p-2 hover:bg-muted text-[#fefefe]"
+              className={`rounded-md p-2 hover:bg-muted ${navTextColor}`}
               aria-expanded={isOpen}
               aria-label="Toggle menu"
             >
@@ -86,14 +94,14 @@ export default function HeaderDesign() {
               isOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
-            <div className="flex items-center justify-between text-[#fefefe]">
-              <h2 className="text-xl font-bold">Menu</h2>
+            <div className="flex items-center justify-between">
+              <h2 className={`text-xl font-bold ${navTextColor}`}>Menu</h2>
               <button
                 onClick={toggleMenu}
                 className="rounded-md p-2 hover:bg-muted"
                 aria-label="Close menu"
               >
-                <X className="h-6 w-6" />
+                <X className={`h-6 w-6 ${navTextColor}`} />
               </button>
             </div>
             <nav className="mt-8">
@@ -102,7 +110,7 @@ export default function HeaderDesign() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="block rounded-md text-[#fefefe] px-4 py-2 text-lg hover:bg-[#62715b]"
+                      className={`block rounded-md px-4 py-2 text-lg hover:bg-[#62715b] ${navTextColor}`}
                       onClick={toggleMenu}
                     >
                       {link.title}
