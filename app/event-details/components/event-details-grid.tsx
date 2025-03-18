@@ -20,7 +20,7 @@ const eventsData = [
     locationName: "The Springs Event Venue",
     addressLine1: "14135 Laramie Trail Montgomery,",
     addressLine2: "Texas 77316",
-    imageSrc: "/Blake-Thomas-Photography-Venue-Details-18-scaled.jpg",
+    imageSrc: "/PineHall.jpg",
     alt: "Reception",
     reverse: true, // Details left, image right
   },

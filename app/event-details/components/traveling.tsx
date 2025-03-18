@@ -104,7 +104,7 @@ export default function Traveling() {
                 rel="noopener noreferrer"
                 className="w-full"
               >
-                <Button className="w-full hover:bg-[#afc6a5] hover:text-[#2d2d2d] text-[#2d2d2d] bg-[#a3b899]">
+                <Button className="w-full hover:bg-[#afc6a5] font-bold hover:text-[#fefefe] text-[#fefefe] bg-[#a3b899]">
                   Visit Website
                 </Button>
               </Link>
