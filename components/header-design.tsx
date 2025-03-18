@@ -3,21 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { usePathname } from "next/navigation";
 
 export default function HeaderDesign() {
   const [isHidden, setIsHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const lastScrollY = useRef(0);
-  const pathname = usePathname();
-
-  // If the current page is /our-story or /registry, use dark text.
-  const navTextColor =
-    pathname === "/our-story" ||
-    pathname === "/registry" ||
-    pathname === "/rsvp"
-      ? "text-[#2d2d2d]"
-      : "text-[#fefefe]";
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -39,7 +29,7 @@ export default function HeaderDesign() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Define your links with title and href
+  // Define navigation links
   const links = [
     { title: "Home", href: "/" },
     { title: "Our Story", href: "/our-story" },
@@ -52,14 +42,14 @@ export default function HeaderDesign() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full py-10 z-50 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-full py-6 z-50 bg-[#2d2d2d]/80 backdrop-blur-sm border-b border-[#BF9D3E] transition-transform duration-300 ${
           isHidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
         <nav className="container mx-auto flex items-center justify-center relative px-4">
           {/* Desktop Navigation */}
           <div className="hidden md:flex">
-            <ul className={`flex gap-8 text-md font-bold ${navTextColor}`}>
+            <ul className="flex gap-8 text-md font-bold text-[#fefefe]">
               {links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.title}</Link>
@@ -71,7 +61,7 @@ export default function HeaderDesign() {
           <div className="md:hidden absolute right-4">
             <button
               onClick={toggleMenu}
-              className={`rounded-md p-2 hover:bg-muted ${navTextColor}`}
+              className="rounded-md p-2 hover:bg-muted"
               aria-expanded={isOpen}
               aria-label="Toggle menu"
             >
@@ -97,13 +87,13 @@ export default function HeaderDesign() {
             }`}
           >
             <div className="flex items-center justify-between">
-              <h2 className={`text-xl font-bold ${navTextColor}`}>Menu</h2>
+              <h2 className="text-xl font-bold">Menu</h2>
               <button
                 onClick={toggleMenu}
                 className="rounded-md p-2 hover:bg-muted"
                 aria-label="Close menu"
               >
-                <X className={`h-6 w-6 ${navTextColor}`} />
+                <X className="h-6 w-6 " />
               </button>
             </div>
             <nav className="mt-8">
@@ -112,7 +102,7 @@ export default function HeaderDesign() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={`block rounded-md px-4 py-2 text-lg hover:bg-[#62715b] ${navTextColor}`}
+                      className="block rounded-md px-4 py-2 text-lg hover:bg-[#62715b]"
                       onClick={toggleMenu}
                     >
                       {link.title}
