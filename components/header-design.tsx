@@ -42,7 +42,7 @@ export default function HeaderDesign() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full py-6 z-50 bg-[#2d2d2d]/80 backdrop-blur-sm border-b border-[#BF9D3E] transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-full py-6 z-50 md:bg-[#2d2d2d]/80 md:backdrop-blur-sm md:border-b md:border-[#BF9D3E] transition-transform duration-300 ${
           isHidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
