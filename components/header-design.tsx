@@ -3,11 +3,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function HeaderDesign() {
   const [isHidden, setIsHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const pathname = usePathname();
+
+  // Set header text color based on pathname
+  const navTextColor =
+    pathname === "/our-story" ||
+    pathname === "/registry" ||
+    pathname === "/rsvp"
+      ? "text-[#2d2d2d]"
+      : "text-[#fefefe]";
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -42,14 +52,14 @@ export default function HeaderDesign() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full py-10 md:py-6 z-50 md:bg-[#2d2d2d]/80 md:backdrop-blur-sm md:border-b md:border-[#BF9D3E] transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-full py-10 md:py-6 z-50 transition-transform duration-300 ${
           isHidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
         <nav className="container mx-auto flex items-center justify-center relative px-4">
           {/* Desktop Navigation */}
           <div className="hidden md:flex">
-            <ul className="flex gap-8 text-md font-bold text-[#fefefe]">
+            <ul className={`flex gap-8 text-md font-bold ${navTextColor}`}>
               {links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.title}</Link>
@@ -65,7 +75,7 @@ export default function HeaderDesign() {
               aria-expanded={isOpen}
               aria-label="Toggle menu"
             >
-              <Menu className="h-6 w-6" />
+              <Menu className={`h-6 w-6 ${navTextColor}`} />
             </button>
           </div>
         </nav>
@@ -87,17 +97,17 @@ export default function HeaderDesign() {
             }`}
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold text-[#fefefe]">Menu</h2>
+              <h2 className={`text-xl font-bold ${navTextColor}`}>Menu</h2>
               <button
                 onClick={toggleMenu}
                 className="rounded-md p-2 hover:bg-muted"
                 aria-label="Close menu"
               >
-                <X className="h-6 w-6 " />
+                <X className={`h-6 w-6 ${navTextColor}`} />
               </button>
             </div>
             <nav className="mt-8">
-              <ul className="space-y-4 text-[#fefefe]">
+              <ul className={`space-y-4 ${navTextColor}`}>
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
