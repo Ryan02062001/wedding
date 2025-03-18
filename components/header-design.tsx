@@ -11,7 +11,7 @@ export default function HeaderDesign() {
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
-  // Set header text color based on pathname
+  // Dynamic color for header icons (hamburger & close)
   const navTextColor =
     pathname === "/our-story" ||
     pathname === "/registry" ||
@@ -26,7 +26,6 @@ export default function HeaderDesign() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // Hide header when scrolling down (past 50px) and show it when scrolling up
       if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
         setIsHidden(true);
       } else {
@@ -57,7 +56,7 @@ export default function HeaderDesign() {
         }`}
       >
         <nav className="container mx-auto flex items-center justify-center relative px-4">
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with dynamic text color */}
           <div className="hidden md:flex">
             <ul className={`flex gap-8 text-md font-bold ${navTextColor}`}>
               {links.map((link) => (
@@ -67,7 +66,7 @@ export default function HeaderDesign() {
               ))}
             </ul>
           </div>
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Hamburger Button with dynamic icon color */}
           <div className="md:hidden absolute right-4">
             <button
               onClick={toggleMenu}
@@ -81,7 +80,7 @@ export default function HeaderDesign() {
         </nav>
       </header>
 
-      {/* Sliding Menu for Mobile */}
+      {/* Mobile Sliding Menu */}
       {isOpen && (
         <>
           {/* Overlay */}
@@ -90,14 +89,14 @@ export default function HeaderDesign() {
             onClick={toggleMenu}
             aria-hidden="true"
           />
-          {/* Menu Panel */}
+          {/* Menu Panel with fixed white text */}
           <div
             className={`fixed inset-y-0 right-0 z-50 w-64 transform bg-[#a3b899] p-4 shadow-lg transition-transform duration-300 ease-in-out ${
               isOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
             <div className="flex items-center justify-between">
-              <h2 className={`text-xl font-bold ${navTextColor}`}>Menu</h2>
+              <h2 className="text-xl font-bold text-[#fefefe]">Menu</h2>
               <button
                 onClick={toggleMenu}
                 className="rounded-md p-2 hover:bg-muted"
@@ -107,12 +106,12 @@ export default function HeaderDesign() {
               </button>
             </div>
             <nav className="mt-8">
-              <ul className={`space-y-4 ${navTextColor}`}>
+              <ul className="space-y-4 text-[#fefefe]">
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="block rounded-md px-4 py-2 text-lg hover:bg-[#62715b]"
+                      className="block rounded-md px-4 py-2 text-lg text-[#fefefe] hover:bg-[#62715b]"
                       onClick={toggleMenu}
                     >
                       {link.title}
