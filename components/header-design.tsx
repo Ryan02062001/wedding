@@ -13,7 +13,9 @@ export default function HeaderDesign() {
 
   // If the current page is /our-story or /registry, use dark text.
   const navTextColor =
-    pathname === "/our-story" || pathname === "/registry"
+    pathname === "/our-story" ||
+    pathname === "/registry" ||
+    pathname === "/rsvp"
       ? "text-[#2d2d2d]"
       : "text-[#fefefe]";
 

@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-[#a3b899]
+        className={`bg-[#fefefe]
           ${montserrat.variable} 
           ${alexBrush.variable}  // 3) Activate cursive font variable
           antialiased

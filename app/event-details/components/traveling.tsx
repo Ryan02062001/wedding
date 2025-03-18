@@ -1,7 +1,11 @@
 "use client";
+
 import { ClockIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 
 export default function Traveling() {
   const accommodations = [
@@ -10,6 +14,7 @@ export default function Traveling() {
       image: "/westin.jpg",
       cost: "$$$",
       location: "2 Waterway Square Pl, The Woodlands, TX 77380",
+      link: "https://www.westinwoodlands.com",
       distance: (
         <div className="flex gap-1">
           <ClockIcon size={16} />
@@ -19,10 +24,11 @@ export default function Traveling() {
       ),
     },
     {
-      name: "Hyatt Place Houston/The Woodlands",
+      name: "Hyatt Place The Woodlands",
       image: "/hyatt-place.jpg",
       cost: "$$",
       location: "1909 Research Forest Dr, The Woodlands, TX 77380",
+      link: "https://www.hyatt.com/hyatt-place/en-US/houzw-hyatt-place-houston-the-woodlands?offercode=spc1",
       distance: (
         <div className="flex gap-1">
           <ClockIcon size={16} />
@@ -32,10 +38,11 @@ export default function Traveling() {
       ),
     },
     {
-      name: "Hyatt House The Woodlands / Shenandoah",
-      image: "/hyatt-house.jpg",
+      name: "Hilton Garden Inn Houston",
+      image: "/hilton-garden.jpg",
       cost: "$$",
-      location: "18645 Residence Dr, Shenandoah, TX 77385",
+      location: "9301 Six Pines Drive The Woodlands, Texas 77380 USA",
+      link: "https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=HOUWDGI&arrivalDate=2025-03-18&departureDate=2025-03-19&room1NumAdults=1",
       distance: (
         <div className="flex gap-1">
           <ClockIcon size={16} />
@@ -49,15 +56,16 @@ export default function Traveling() {
   return (
     <div className="w-full mx-auto px-4 sm:px-8 lg:px-16 py-6 sm:py-12 space-y-10">
       {/* Title */}
-      <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold mb-4 font-brush text-center tracking-wide text-[#fefefe]">
+      <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold mb-4 font-brush text-center tracking-wide text-[#BF9D3E]">
         Traveling Accommodations
       </h2>
+
       {/* Grid of Hotel Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 items-stretch">
         {accommodations.map((hotel, index) => (
-          <div
+          <Card
             key={index}
-            className="bg-[#667b68] rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 group"
+            className="rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 group flex flex-col h-full"
           >
             {/* Image Section */}
             <div className="relative h-48 sm:h-64 overflow-hidden">
@@ -67,27 +75,41 @@ export default function Traveling() {
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black opacity-20"></div>
+              <div className="absolute inset-0 bg-black opacity-20" />
             </div>
 
-            {/* Details Section */}
-            <div className="p-4 sm:p-6">
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">
+            {/* Content Section */}
+            <CardContent className="p-4 sm:p-6 flex-grow flex flex-col justify-evenly">
+              <CardTitle className="text-xl sm:text-2xl font-semibold text-[#2d2d2d] mb-2">
                 {hotel.name}
-              </h3>
+              </CardTitle>
               <div className="space-y-1">
-                <p className="text-xs sm:text-sm text-white">
+                <p className="text-xs sm:text-sm text-[#2d2d2d]">
                   <span className="font-bold">Cost:</span> {hotel.cost}
                 </p>
-                <div className="text-xs sm:text-sm text-white flex items-center gap-1">
+                <div className="text-xs sm:text-sm text-[#2d2d2d] flex items-center gap-1">
                   <span className="font-bold">Distance:</span> {hotel.distance}
                 </div>
-                <p className="text-xs sm:text-sm text-white">
+                <p className="text-xs sm:text-sm text-[#2d2d2d]">
                   <span className="font-bold">Location:</span> {hotel.location}
                 </p>
               </div>
-            </div>
-          </div>
+            </CardContent>
+
+            {/* Footer with Button */}
+            <CardFooter className="p-4 sm:p-6 pt-0">
+              <Link
+                href={hotel.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full"
+              >
+                <Button className="w-full hover:bg-[#afc6a5] hover:text-[#2d2d2d] text-[#2d2d2d] bg-[#a3b899]">
+                  Visit Website
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
         ))}
       </div>
     </div>

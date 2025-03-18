@@ -51,11 +51,11 @@ export default function EventDetailsGrid() {
               event.reverse ? "order-2 md:order-1" : ""
             } flex flex-col items-center text-center`}
           >
-            <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold mb-2 font-brush tracking-wide text-[#fefefe]">
+            <h2 className="text-5xl sm:text-6xl md:text-8xl font-bold mb-2 font-brush tracking-wide text-[#BF9D3E]">
               {event.title}
             </h2>
             <p className="text-base sm:text-lg mb-1 font-bold">{event.time}</p>
-            <p className="text-xl sm:text-2xl font-bold text-[#fefefe]">
+            <p className="text-xl sm:text-2xl font-bold text-[#BF9D3E]">
               {event.locationName}
             </p>
             <p className="text-base sm:text-lg">{event.addressLine1}</p>

@@ -412,7 +412,8 @@ function TimelineItem({
       )}
 
       {/* Icon */}
-      <div className="absolute left-1/2 z-10 flex h-12 w-12 -translate-x-1/2 transform items-center justify-center rounded-full bg-white shadow-md">
+      {/* Icon */}
+      <div className="hidden md:flex absolute left-1/2 z-10 h-12 w-12 -translate-x-1/2 transform items-center justify-center rounded-full bg-white shadow-md">
         {icon}
       </div>
     </div>
