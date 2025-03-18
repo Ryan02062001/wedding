@@ -10,20 +10,6 @@ import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 export default function Traveling() {
   const accommodations = [
     {
-      name: "The Westin at The Woodlands",
-      image: "/westin.jpg",
-      cost: "$$$",
-      location: "2 Waterway Square Pl, The Woodlands, TX 77380",
-      link: "https://www.westinwoodlands.com",
-      distance: (
-        <div className="flex gap-1">
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-        </div>
-      ),
-    },
-    {
       name: "Hyatt Place The Woodlands",
       image: "/hyatt-place.jpg",
       cost: "$$",
@@ -43,6 +29,20 @@ export default function Traveling() {
       cost: "$$",
       location: "9301 Six Pines Drive The Woodlands, Texas 77380 USA",
       link: "https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=HOUWDGI&arrivalDate=2025-03-18&departureDate=2025-03-19&room1NumAdults=1",
+      distance: (
+        <div className="flex gap-1">
+          <ClockIcon size={16} />
+          <ClockIcon size={16} />
+          <ClockIcon size={16} />
+        </div>
+      ),
+    },
+    {
+      name: "The Westin at The Woodlands",
+      image: "/westin.jpg",
+      cost: "$$$",
+      location: "2 Waterway Square Pl, The Woodlands, TX 77380",
+      link: "https://www.westinwoodlands.com",
       distance: (
         <div className="flex gap-1">
           <ClockIcon size={16} />
