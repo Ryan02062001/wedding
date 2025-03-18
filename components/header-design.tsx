@@ -76,7 +76,7 @@ export default function HeaderDesign() {
         <>
           {/* Overlay */}
           <div
-            className="fixed inset-0 bg-black/70 transition-opacity z-40"
+            className="fixed inset-0 bg-[#2d2d2d]/70 transition-opacity z-40"
             onClick={toggleMenu}
             aria-hidden="true"
           />
@@ -87,7 +87,7 @@ export default function HeaderDesign() {
             }`}
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-bold">Menu</h2>
+              <h2 className="text-xl font-bold text-[#fefefe]">Menu</h2>
               <button
                 onClick={toggleMenu}
                 className="rounded-md p-2 hover:bg-muted"
@@ -97,7 +97,7 @@ export default function HeaderDesign() {
               </button>
             </div>
             <nav className="mt-8">
-              <ul className="space-y-4">
+              <ul className="space-y-4 text-[#fefefe]">
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
