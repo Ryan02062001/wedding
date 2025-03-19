@@ -35,20 +35,6 @@ export default function Traveling() {
         </div>
       ),
     },
-    // {
-    //   name: "The Westin at The Woodlands",
-    //   image: "/westin.jpg",
-    //   cost: "$$$",
-    //   location: "2 Waterway Square Pl, The Woodlands, TX 77380",
-    //   link: "https://www.westinwoodlands.com",
-    //   distance: (
-    //     <div className="flex gap-1">
-    //       <ClockIcon size={16} />
-    //       <ClockIcon size={16} />
-    //       <ClockIcon size={16} />
-    //     </div>
-    //   ),
-    // },
   ];
 
   return (
@@ -74,6 +60,11 @@ export default function Traveling() {
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black opacity-20" />
+              {hotel.name === "Hyatt Place The Woodlands" && (
+                <div className="absolute top-2 left-2 bg-[#BF9D3E] text-white text-xs font-bold px-3 py-1 rounded shadow-md">
+                  Recommended Choice
+                </div>
+              )}
             </div>
 
             {/* Content Section */}
