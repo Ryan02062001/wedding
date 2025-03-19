@@ -19,7 +19,6 @@ export default function Traveling() {
         <div className="flex gap-1">
           <ClockIcon size={16} />
           <ClockIcon size={16} />
-          <ClockIcon size={16} />
         </div>
       ),
     },
@@ -31,7 +30,6 @@ export default function Traveling() {
       link: "https://urldefense.com/v3/__https:/www.hilton.com/en/book/reservation/deeplink/?ctyhocn=HOUWDGI&corporateCode=0110175__;!!FOfmI8qiWcWBHqypJtzENF0!3Fmjh-9KV7n0BAH2NPq7B-AX0M0IhV6Ksl6gFgJp3oA3fVYqabym_wxUBGUxptp6l6wm7SuKKXmAQ1qD4XWPfxyp$",
       distance: (
         <div className="flex gap-1">
-          <ClockIcon size={16} />
           <ClockIcon size={16} />
           <ClockIcon size={16} />
         </div>
