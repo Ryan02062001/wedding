@@ -37,20 +37,20 @@ export default function Traveling() {
         </div>
       ),
     },
-    {
-      name: "The Westin at The Woodlands",
-      image: "/westin.jpg",
-      cost: "$$$",
-      location: "2 Waterway Square Pl, The Woodlands, TX 77380",
-      link: "https://www.westinwoodlands.com",
-      distance: (
-        <div className="flex gap-1">
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-          <ClockIcon size={16} />
-        </div>
-      ),
-    },
+    // {
+    //   name: "The Westin at The Woodlands",
+    //   image: "/westin.jpg",
+    //   cost: "$$$",
+    //   location: "2 Waterway Square Pl, The Woodlands, TX 77380",
+    //   link: "https://www.westinwoodlands.com",
+    //   distance: (
+    //     <div className="flex gap-1">
+    //       <ClockIcon size={16} />
+    //       <ClockIcon size={16} />
+    //       <ClockIcon size={16} />
+    //     </div>
+    //   ),
+    // },
   ];
 
   return (
