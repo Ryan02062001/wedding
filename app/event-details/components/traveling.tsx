@@ -28,7 +28,7 @@ export default function Traveling() {
       image: "/hilton-garden.jpg",
       cost: "$$",
       location: "9301 Six Pines Drive The Woodlands, Texas 77380 USA",
-      link: "https://www.hilton.com/en/book/reservation/rooms/?ctyhocn=HOUWDGI&arrivalDate=2025-03-18&departureDate=2025-03-19&room1NumAdults=1",
+      link: "https:/www.hilton.com/en/book/reservation/deeplink/?ctyhocn=HOUWDGI&corporateCode=0110175__;!!FOfmI8qiWcWBHqypJtzENF0!3Fmjh-9KV7n0BAH2NPq7B-AX0M0IhV6Ksl6gFgJp3oA3fVYqabym_wxUBGUxptp6l6wm7SuKKXmAQ1qD4XWPfxyp$",
       distance: (
         <div className="flex gap-1">
           <ClockIcon size={16} />
@@ -61,7 +61,7 @@ export default function Traveling() {
       </h2>
 
       {/* Grid of Hotel Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 items-stretch">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-stretch md:w-8/12 justify-self-center">
         {accommodations.map((hotel, index) => (
           <Card
             key={index}
