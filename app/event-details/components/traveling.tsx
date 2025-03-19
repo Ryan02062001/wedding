@@ -61,7 +61,7 @@ export default function Traveling() {
       </h2>
 
       {/* Grid of Hotel Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-stretch md:w-8/12 justify-self-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 items-stretch lg:w-8/12 justify-self-center">
         {accommodations.map((hotel, index) => (
           <Card
             key={index}
