@@ -28,7 +28,7 @@ export default function Traveling() {
       image: "/hilton-garden.jpg",
       cost: "$$",
       location: "9301 Six Pines Drive The Woodlands, Texas 77380 USA",
-      link: "https:/www.hilton.com/en/book/reservation/deeplink/?ctyhocn=HOUWDGI&corporateCode=0110175__;!!FOfmI8qiWcWBHqypJtzENF0!3Fmjh-9KV7n0BAH2NPq7B-AX0M0IhV6Ksl6gFgJp3oA3fVYqabym_wxUBGUxptp6l6wm7SuKKXmAQ1qD4XWPfxyp$",
+      link: "https://urldefense.com/v3/__https:/www.hilton.com/en/book/reservation/deeplink/?ctyhocn=HOUWDGI&corporateCode=0110175__;!!FOfmI8qiWcWBHqypJtzENF0!3Fmjh-9KV7n0BAH2NPq7B-AX0M0IhV6Ksl6gFgJp3oA3fVYqabym_wxUBGUxptp6l6wm7SuKKXmAQ1qD4XWPfxyp$",
       distance: (
         <div className="flex gap-1">
           <ClockIcon size={16} />
