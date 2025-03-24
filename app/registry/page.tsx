@@ -22,26 +22,7 @@ export default function Page() {
 
       {/* Logo Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-4xl items-center justify-center">
-        {/* Williams Sonoma */}
-        <div
-          className="flex items-center justify-center w-full max-w-[150px] sm:max-w-md h-auto cursor-pointer justify-self-center
-"
-        >
-          <Link
-            href="https://www.williams-sonoma.com/registry/gc7gjzrm86/registry-list.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/william-sonoma.svg"
-              alt="William Sonoma"
-              width={3840}
-              height={2160}
-              className="w-full h-full object-contain"
-            />
-          </Link>
-        </div>
-
+       
         {/* Target */}
         <div
           className="flex items-center justify-center w-full max-w-[100px] sm:max-w-xs h-auto cursor-pointer justify-self-center
@@ -83,7 +64,7 @@ export default function Page() {
         </div>
 
         {/* Sur La Table */}
-        <div className="flex items-center justify-center w-full max-w-[150px] sm:max-w-md h-auto cursor-pointer md:col-span-1 md:col-start-2 justify-self-center">
+        <div className="flex items-center justify-center w-full max-w-[150px] sm:max-w-md h-auto cursor-pointer justify-self-center">
           <Link
             href="https://www.surlatable.com/giftregistry-customershow?ID=9447acbcd4694f40a301494b3f"
             target="_blank"
